@@ -7,7 +7,7 @@ public class LearningBitsets {
         b1.set(1,true);
         b1.set(2,true);
         b1.set(3,true);
-        System.out.println(b1.length());
+        System.out.println(b1);
 
     }
 }
