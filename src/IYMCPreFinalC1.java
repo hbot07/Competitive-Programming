@@ -1,3 +1,4 @@
+//Description :wrote this code to check my solution for IYMC pre final round
 public class IYMCPreFinalC1 {
 
 public static void main(String[] args)
