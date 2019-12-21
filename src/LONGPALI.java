@@ -8,13 +8,16 @@ public class LONGPALI {
         String s=sc.next();
         String LongestPalin="";
         for(int start=0;start<s.length()-1;start++)
-            for(int end=start+1;end<s.length();end++)
+        {int end=s.indexOf(s.charAt(start),start+1);
+            while(end!=-1)
             {
                 if(checkPalin(s.substring(start,end+1))&&(end-start+1)>LongestPalin.length())
                 {
                     LongestPalin=s.substring(start,end+1);
                 }
+                end=s.indexOf(s.charAt(start),end+1);
             }
+        }
         System.out.println(LongestPalin.length());
         System.out.println(LongestPalin);
 
