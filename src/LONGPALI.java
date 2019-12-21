@@ -22,12 +22,17 @@ public class LONGPALI {
         System.out.println(LongestPalin);
 
     }
-    static boolean checkPalin(String s) {
-        String rev = "";
-        for (int i = 0; i < s.length(); i++)
-        {
-            rev=s.charAt(i)+rev;
+    static boolean checkPalin(String word){
+        int start = 0;
+        int end = word.length() - 1;
+        while (end > start) {
+            if (word.charAt(start) != word.charAt(end)) {
+                return false;
+            }
+            ++start;
+            --end;
         }
-        return s.equals(rev);
+        return true;
+    }
+}
 
-    }}
