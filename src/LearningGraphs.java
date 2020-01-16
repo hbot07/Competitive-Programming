@@ -2,23 +2,24 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LearningGraphs {
-    static int n;
-    static ArrayList<Integer> adjacencyList[];
-    public static void main(String args[])
+    private static int numberOfVertices;
+    private static ArrayList<Integer>[] adjacencyList;
+    public static void main(String[] args)
     {
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter no. of vertices");
-        n=sc.nextInt();
-        adjacencyList=new ArrayList[n];
-        for(int i=0;i<n;i++)
-            adjacencyList[i]=new ArrayList<>(n);
+        numberOfVertices=sc.nextInt();
+        adjacencyList=new ArrayList[numberOfVertices];
+        for(int i=0;i<numberOfVertices;i++)
+            adjacencyList[i]=new ArrayList<>(numberOfVertices);
         System.out.println("Enter no. of edges");
-        int e=sc.nextInt();
-        for(int i=0;i<e;i++)
-        {   System.out.println("Enter pair");
-            int a=sc.nextInt(),b=sc.nextInt();
-            adjacencyList[a].add(b);
-            adjacencyList[b].add(a);
+        int numberOfEdges=sc.nextInt();
+        for(int i=0;i<numberOfEdges;i++)
+        {   
+            System.out.println("Enter pair");
+            int vertex1=sc.nextInt(),vertex2=sc.nextInt();
+            adjacencyList[vertex1].add(vertex2);
+            adjacencyList[vertex2].add(vertex1);
         }
         System.out.println("Where to start");
         for(Integer i:allConnectedTo(sc.nextInt()))
@@ -27,28 +28,29 @@ public class LearningGraphs {
         }
 
     }
-    static boolean isvisited[];
-    static ArrayList<Integer> allConnectedTo(int a)
+    private static boolean[] isVisited;
+    static ArrayList<Integer> allConnectedTo(int vertex)
     {
-        ArrayList<Integer> connected=new ArrayList<Integer>(n);
-        isvisited=new boolean[n];
-        for(int i=0;i<n;i++)
+        ArrayList<Integer> connected=new ArrayList<>(numberOfVertices);
+        isVisited=new boolean[numberOfVertices];
+        for(int i=0;i<numberOfVertices;i++)
         {
-            isvisited[i]=false;
+            isVisited[i]=false;
         }
-        dfs(a,connected);
+        dfs(vertex,connected);
         return connected;
     }
 
-    static void dfs(int s,ArrayList<Integer> a)
-    {   a.add(s);
-        isvisited[s]=true;
-        for(int i:adjacencyList[s])
+    static void dfs(int vertex,ArrayList<Integer> connected)
+    {   connected.add(vertex);
+        isVisited[vertex]=true;
+        for(int i:adjacencyList[vertex])
         {
-            if(!isvisited[i])
+            if(!isVisited[i])
             {
-            dfs(i,a);
-            }        }
+            dfs(i,connected);
+            }        
+        }
     }
 
 
