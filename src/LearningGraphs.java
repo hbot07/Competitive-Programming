@@ -16,7 +16,7 @@ public class LearningGraphs {
         int numberOfEdges=sc.nextInt();
         for(int i=0;i<numberOfEdges;i++)
         {   
-            System.out.println("Enter pair");
+            System.out.println("Enter pair of connected vertices");
             int vertex1=sc.nextInt(),vertex2=sc.nextInt();
             adjacencyList[vertex1].add(vertex2);
             adjacencyList[vertex2].add(vertex1);
