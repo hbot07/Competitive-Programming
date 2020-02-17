@@ -6,6 +6,7 @@ public class LearningGraphs {
     private static ArrayList<Integer>[] adjacencyList;
     public static void main(String[] args)
     {
+        System.out.println("This program prints all vertices connected to a given vertex");
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter no. of vertices");
         numberOfVertices=sc.nextInt();
@@ -21,7 +22,7 @@ public class LearningGraphs {
             adjacencyList[vertex1].add(vertex2);
             adjacencyList[vertex2].add(vertex1);
         }
-        System.out.println("Where to start");
+        System.out.println("You want to find connected vertices to which vertex?");
         for(Integer i:allConnectedTo(sc.nextInt()))
         {
             System.out.println(i);

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//Classical Dynamic Programming
 public class BottomUpRodCutting {
     static int[] a;
     static Scanner sc = new Scanner(System.in);
