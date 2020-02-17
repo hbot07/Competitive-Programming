@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LearningGraphs {
+public class MyFirstGraph {
     private static int numberOfVertices;
     private static ArrayList<Integer>[] adjacencyList;
     public static void main(String[] args)
