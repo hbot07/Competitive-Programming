@@ -12,7 +12,6 @@ public class VOTERSDI{
             a[i]=sc.nextInt();
         Arrays.sort(a);
         ArrayList<Integer> ar=new ArrayList<>();
-        int freq=0,element=-1;
         for(int i=0;i<n-1;i++)
         {
             if(a[i]==a[i+1] && !ar.contains(a[i]))
