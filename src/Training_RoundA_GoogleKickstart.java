@@ -1,8 +1,10 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Scanner;
-//Practice 2019
-public class Training_RoundA_GoogleKickstart {
-    static Scanner sc=new Scanner(System.in);
+
+class Solution {
+    static Scanner sc=new Scanner(new BufferedReader(new InputStreamReader(System.in)));
     public static void main(String[] args)
     {
         int t=sc.nextInt();
@@ -14,22 +16,19 @@ public class Training_RoundA_GoogleKickstart {
     static void eachCase(int testCaseNumber)
     {
         int n=sc.nextInt(),p=sc.nextInt();
-        int[] s=new int[n];
+        long[] a=new long[n];
         for(int i=0;i<n;i++)
-            s[i]=sc.nextInt();
-        Arrays.sort(s);
-        long sum_of_p_elements=0;
+            a[i]=sc.nextLong();
+        Arrays.sort(a);
+        long sum=0;
         for(int i=0;i<p;i++)
-            sum_of_p_elements+=s[i];
-        int i=0;
-        long answer=Long.MAX_VALUE;
-        while(p+i<n)
+            sum+=a[i];
+        long minSum=p*a[p-1]-sum;
+        for(int i=1;i<=n-p;i++)
         {
-            int max=s[p+i-1];
-            answer=Math.min(answer,p*max-sum_of_p_elements);
-            sum_of_p_elements=sum_of_p_elements-s[i]+s[i+p];
-            i++;
+            sum=sum-a[i-1]+a[i+p-1];
+            minSum=Math.min(minSum,p*a[i+p-1]-sum);
         }
-        System.out.println("Case #"+(testCaseNumber+1)+": "+answer);
-        }
+        System.out.println("Case #"+(testCaseNumber+1)+": "+minSum);
+    }
 }
