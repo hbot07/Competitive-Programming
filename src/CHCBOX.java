@@ -24,9 +24,9 @@ public class CHCBOX {
             if(a[i]==max)
                 indexes.add(i);
         }
-        if(indexes.size()==0)
+        if(indexes.size()>n/2)
         {
-            System.out.println(n+1);
+            System.out.println(0);
             return;
         }
         if(indexes.size()==1)
@@ -34,23 +34,19 @@ public class CHCBOX {
             System.out.println(n/2);
             return;
         }
-        int index;
         int count=0;
-        for(int k=0;k<=n;k++)
+        outer: for(int k=0;k<n;k++)
         {
-            boolean flag=true;
-            index=n-k;
-            for(int i=0;i<n/2;i++)
+            for(int i=0;i<indexes.size();i++)
             {
-                index=index<n?index:index-n;
-                if(a[index]==max)
-                {
-                    flag=false;
-                    break;
-                }
-                index++;
+                indexes.set(i,indexes.get(i)+k>n-1?indexes.get(i)+k-n:indexes.get(i)+k);
             }
-            if(flag) count++;
+            for(int i=0;i<indexes.size();i++)
+            {
+                if(indexes.get(i)<n/2)
+                    continue outer;
+            }
+            count++;
         }
         System.out.println(count);
     }
