@@ -23,7 +23,7 @@ public class RodCuttingDP {
     {if(n==1) return priceList[0];
         if(n==0) return 0;
         if (isAlreadyCalculated[n-1]) return memo[n-1];
-        int max=priceList[n-1];//the revenue when no cut would be made
+        int max=priceList[n-1]; //the revenue when no cut would be made
         for(int i=1;i<n;i++)
         {
             max=Math.max(r(i)+r(n-i),max);
